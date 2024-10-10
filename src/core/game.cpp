@@ -23,8 +23,8 @@ void Game::Init()
 	SearchAndSetResourceDir("resources");
 
 	// Create local player and sprite.
-	Sprite_t sprite = Sprite_t("player/soldier.png", 4, 6, 64, .25f);
-	Player* localPlayer = new Player({ screenSize.x / 2.f, screenSize.y / 2.f }, sprite);
+	SpriteSheet* spriteSheet = new SpriteSheet(4, 6, 64, "player/soldier.png");
+	Player* localPlayer = new Player({ screenSize.x / 2.f, screenSize.y / 2.f }, spriteSheet);
 	entityList.push_back(localPlayer);
 }
 

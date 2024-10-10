@@ -1,7 +1,6 @@
 #include "player.hpp"
 #include <math.h>
 
-
 void Player::Update()
 {
 	Vector2D accel = { 0.f, 0.f };
@@ -61,62 +60,20 @@ void Player::Update()
 
 	position += (velocity * GetFrameTime());
 
-
-	// Determine which direction takes precedence.
-	if (fabs(velocity.x) > fabs(velocity.y)) {
-		// Handle anim states
-		if (velocity.x < 0.f) {
-			animation.currentRow = 3;
-		}
-		else if (velocity.x > 0.f) {
-			animation.currentRow = 2;
-		}
-	}
-	else {
-		if (velocity.y < 0.f) {
-			animation.currentRow = 1;
-		}
-		else if (velocity.y > 0.f) {
-			animation.currentRow = 0;
-		}
-	}
-
-	// Entity standing still.
-	if(velocity.x == 0.f && velocity.y == 0.f) {
-		animation.currentFrame = 0;
-		animation.currentRow = 0;
-		animation.frameCounter = 0; // Keep resetting to prevent anims.
-	}
-
-	// Animations, this NEEDS encapsulating into it's own module...
-	if (animation.frameCounter > animation.frameTime) {
-		animation.frameCounter = 0;
-
-		// Next animation.
-		animation.currentFrame++;
-
-		if (animation.currentFrame > animation.sheetColumns) {
-			animation.currentFrame = 0;
-		}
-	}
-	else {
-		animation.frameCounter += GetFrameTime();
-	}
+	anim->Update(velocity);
 }
 
 void Player::Render()
 {
-	Rectangle currentSpriteRect = {
-		animation.currentFrame * animation.spriteSize,
-		animation.currentRow * animation.spriteSize,
-		animation.spriteSize,
-		animation.spriteSize
-	};
-	DrawTextureRec(spriteSheet, currentSpriteRect, { position.x, position.y }, WHITE);
-
+	DrawTextureRec(
+		anim->GetSpriteSheet()->GetTexture(),
+		anim->GetCurrentAnimSpriteRect(),
+		{position.x, position.y},
+		WHITE
+	);
 }
 
 void Player::Destroy()
 {
-	UnloadTexture(spriteSheet);
+	anim->~Animation();
 }
