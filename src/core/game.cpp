@@ -2,6 +2,7 @@
 
 void Game::Run()
 {
+	// Main game loop.
 	while (!WindowShouldClose())
 	{
 		Update();

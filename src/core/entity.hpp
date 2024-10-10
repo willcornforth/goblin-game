@@ -1,5 +1,6 @@
 #pragma once
 #include "raylib.h"
+#include "util/vector2d.hpp"
 
 class Entity {
 public:
@@ -10,13 +11,13 @@ public:
 
 	virtual ~Entity() = default;
 
-	Vector2 GetPosition() const { return position; };
+	Vector2D GetPosition() const { return position; };
 	void SetPosition(Vector2 newPosition) { position.x = newPosition.x; position.y = newPosition.y; }
 
-	float GetSpeed() const { return speed; };
-	void SetSpeed(float newSpeed) { speed = newSpeed; };
+	Vector2D GetVelocity() const { return velocity; };
+	void SetVelocity(Vector2D newVelocity) { velocity = newVelocity; };
 
 protected:
-	Vector2 position;
-	float speed;
+	Vector2D position;
+	Vector2D velocity;
 };
