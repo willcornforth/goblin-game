@@ -14,7 +14,7 @@ public:
 	}
 
 	inline float Length() {
-		return sqrt(x * x + y * y);
+		return sqrtf(x * x + y * y);
 	}
 
 	Vector2D operator/(const float val);

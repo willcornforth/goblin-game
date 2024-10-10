@@ -23,7 +23,14 @@ void Game::Init()
 	SearchAndSetResourceDir("resources");
 
 	// Create local player and sprite.
-	SpriteSheet* spriteSheet = new SpriteSheet(4, 6, 64, "player/soldier.png");
+	std::unordered_map<AnimationActivity, int> animMapping = {
+		{DOWN_MOVE, 0},
+		{UP_MOVE, 1},
+		{RIGHT_MOVE, 2},
+		{LEFT_MOVE, 3},
+		{IDLE, 0}
+	};
+	SpriteSheet* spriteSheet = new SpriteSheet(4, 6, 64, "player/soldier.png", animMapping);
 	Player* localPlayer = new Player({ screenSize.x / 2.f, screenSize.y / 2.f }, spriteSheet);
 	entityList.push_back(localPlayer);
 }

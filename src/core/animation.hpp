@@ -1,17 +1,6 @@
 #pragma once
+#include "util/vector2d.hpp"
 #include "sprite_sheet.hpp"
-#include "entity.hpp"
-
-enum AnimationType {
-	NONE,
-	IDLE,
-	LEFT_MOVE,
-	RIGHT_MOVE,
-	UP_MOVE,
-	DOWN_MOVE,
-	ATTACK,
-	DIE
-};
 
 class Animation {
 public:
@@ -22,10 +11,13 @@ public:
 		currFrame = 0;
 		currRow = 0;
 	}
-	Animation(SpriteSheet* _spriteSheet, float _frameTime = 0.25f) {
+	Animation(
+		SpriteSheet* _spriteSheet,
+		float _frameTime = 0.25f
+	) {
 		spriteSheet = _spriteSheet;
-		frameTime = _frameTime;
 
+		frameTime = _frameTime;
 		frameCounter = 0;
 		currFrame = 0;
 		currRow = 0;

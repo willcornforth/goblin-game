@@ -1,6 +1,7 @@
 #pragma once
 #include "raylib.h"
 #include "util/vector2d.hpp"
+#include "animation.hpp"
 
 class Entity {
 public:
@@ -17,6 +18,7 @@ public:
 	void SetVelocity(Vector2D newVelocity) { velocity = newVelocity; };
 
 protected:
+	Animation* anim;
 	Vector2D position;
 	Vector2D velocity;
 };
