@@ -12,7 +12,7 @@ public:
 	virtual ~Entity() = default;
 
 	Vector2D GetPosition() const { return position; };
-	void SetPosition(Vector2 newPosition) { position.x = newPosition.x; position.y = newPosition.y; }
+	void SetPosition(Vector2D newPosition) { position.x = newPosition.x; position.y = newPosition.y; }
 
 	Vector2D GetVelocity() const { return velocity; };
 	void SetVelocity(Vector2D newVelocity) { velocity = newVelocity; };

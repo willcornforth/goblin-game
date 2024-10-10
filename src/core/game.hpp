@@ -9,7 +9,7 @@
 
 class Game {
 public:
-	Game(Vector2 screenSize, char* windowTitle) {
+	Game(Vector2D screenSize, char* windowTitle) {
 		this->screenSize = screenSize;
 		this->windowTitle = windowTitle;
 
@@ -26,5 +26,5 @@ private:
 
 	std::vector<Entity*> entityList;
 	char* windowTitle;
-	Vector2 screenSize;
+	Vector2D screenSize;
 };
