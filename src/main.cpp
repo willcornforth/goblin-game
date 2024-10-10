@@ -23,37 +23,12 @@ For a C++ project simply rename the file to .cpp and re-run the build script
 --  3. This notice may not be removed or altered from any source distribution.
 
 */
+#include "core/game.hpp"
 
-#include "raylib.h"
-
-#include "resource_dir.h"	// utility header for SearchAndSetResourceDir
-
-int main ()
+int main()
 {
-	// Tell the window to use vysnc and work on high DPI displays
-	SetConfigFlags(FLAG_VSYNC_HINT | FLAG_WINDOW_HIGHDPI);
+	Game game = Game({ 800, 640 }, "Goblin Game");
+	game.Run();
 
-	// Create the window and OpenGL context
-	InitWindow(1280, 800, "Goblin Game");
-
-	// Utility function from resource_dir.h to find the resources folder and set it as the current working directory so we can load from it
-	SearchAndSetResourceDir("resources");
-
-	Font inter = LoadFont("fonts/inter/Inter-VariableFont_opsz,wght.ttf");
-
-	while (!WindowShouldClose())
-	{
-		// drawing
-		BeginDrawing();
-
-		ClearBackground(BLACK);
-
-		DrawText("Goblin Game", 5, 5, 16, WHITE);
-
-		EndDrawing();
-	}
-
-	// Destory the window and cleanup the OpenGL context
-	CloseWindow();
 	return 0;
 }
