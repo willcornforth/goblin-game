@@ -1,4 +1,5 @@
 #include "particle.hpp"
+#include <string>
 
 void Particle::Update()
 {
@@ -17,6 +18,10 @@ void Particle::Render() {
 		{ position.x, position.y },
 		WHITE
 	);
+	
+	// Debug decay.
+	std::string temp = "Decay: " + std::to_string(timeToDecay);
+	DrawText(temp.data(), position.x, position.y - 5, 12, RAYWHITE);
 }
 
 void Particle::Destroy()

@@ -2,5 +2,4 @@
 
 void Entity::Destroy() {
 	isDestroyed = true;
-	anim->~Animation();
 }

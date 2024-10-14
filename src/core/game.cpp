@@ -27,17 +27,22 @@ void Game::Init()
 	Player* localPlayer = new Player({ screenSize.x / 2.f, screenSize.y / 2.f });
 	entityList.push_back(localPlayer);
 
-	Particle* fancyRing = new Particle(500.f, { screenSize.x / 2.f, screenSize.y / 2.f });
+	Particle* fancyRing = new Particle(5.f, { screenSize.x / 2.f, screenSize.y / 2.f });
 	entityList.push_back(fancyRing);
 }
 
 void Game::Update()
 {
-	for (Entity* entity : entityList) {
-		if (!entity)
+	for (auto it = entityList.begin(); it != entityList.end(); ) {
+		Entity* entity = *it;
+
+		if (!entity || entity->IsDestroyed()) {
+			it = entityList.erase(it);
 			continue;
+		}
 
 		entity->Update();
+		++it;
 	}
 }
 

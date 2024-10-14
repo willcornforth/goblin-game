@@ -23,13 +23,15 @@ public:
 	virtual void Render() = 0;
 	virtual void Destroy();
 
-	virtual ~Entity() { Destroy(); };
+	virtual ~Entity() = default;
 
 	Vector2D GetPosition() const { return position; };
 	void SetPosition(Vector2D newPosition) { position.x = newPosition.x; position.y = newPosition.y; }
 
 	Vector2D GetVelocity() const { return velocity; };
 	void SetVelocity(Vector2D newVelocity) { velocity = newVelocity; };
+
+	bool IsDestroyed() const { return isDestroyed; };
 
 	EntityType GetType() const { return type; };
 
