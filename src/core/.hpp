@@ -7,6 +7,4 @@ public:
 	ParticleAnimation(
 		SpriteSheet* _spriteSheet
 	) : Animation(_spriteSheet) {};
-
-	void Update(Vector2D velocity);
 };

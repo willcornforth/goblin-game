@@ -2,6 +2,7 @@
 #include "util/vector2d.hpp"
 #include "sprite_sheet.hpp"
 
+// Basic looping animation class.
 class Animation {
 public:
 	Animation() {
@@ -23,7 +24,9 @@ public:
 		currRow = 0;
 	}
 
-	virtual void Update(Vector2D velocity) = 0;
+	// Velocity passed as 0,0 as currently we don't use this in the base class...
+	// May be a better way to do this?
+	virtual void Update(Vector2D velocity = { 0.f, 0.f });
 
 	Rectangle GetCurrentAnimSpriteRect();
 	SpriteSheet* Animation::GetSpriteSheet() { return spriteSheet; };

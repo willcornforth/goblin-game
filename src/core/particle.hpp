@@ -1,6 +1,5 @@
 #pragma once
 #include "entity.hpp"
-#include "particle_animation.hpp"
 
 class Particle : public Entity {
 public:
@@ -14,7 +13,7 @@ public:
 		SpriteSheet* spriteSheet =
 			new SpriteSheet(8, 8, 100, SPRITE_FILE_PATH, animMapping);
 
-		anim = new ParticleAnimation(spriteSheet);
+		anim = new Animation(spriteSheet);
 	}
 
 	virtual void Render();
@@ -22,7 +21,7 @@ public:
 	virtual void Destroy();
 
 protected:
-	ParticleAnimation* anim;
+	Animation* anim;
 	float timeToDecay;
 
 private:

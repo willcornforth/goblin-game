@@ -28,5 +28,5 @@ void ActorAnimation::Update(Vector2D velocity)
 		frameCounter = 0; // Keep resetting to prevent anims.
 	}
 
-	Animation::Update(velocity);
+	Animation::Update();
 }

@@ -18,9 +18,13 @@ void Animation::Update(Vector2D velocity) {
 
 		// Next 
 		currFrame++;
-
 		if (currFrame > spriteSheet->GetColumns()) {
 			currFrame = 0;
+			currRow++;
+		}
+
+		if (currRow > spriteSheet->GetRows()) {
+			currRow = 0;
 		}
 	}
 	else {
