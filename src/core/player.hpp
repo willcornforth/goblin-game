@@ -1,9 +1,10 @@
 #pragma once
 #include "entity.hpp"
+#include "actor_animation.hpp"
 
 class Player : public Entity {
 public:
-	Player(Vector2D position) {
+	Player(Vector2D _position) : Entity(_position) {
 		std::unordered_map<AnimationActivity, int> animMapping = {
 			{DOWN_MOVE, 0},
 			{UP_MOVE, 1},
@@ -11,25 +12,22 @@ public:
 			{LEFT_MOVE, 3},
 			{IDLE, 0}
 		};
-		SpriteSheet* spriteSheet = new SpriteSheet(4, 6, 64, SPRITE_FILE_PATH, animMapping);
+		SpriteSheet* spriteSheet = 
+			new SpriteSheet(4, 6, 64, SPRITE_FILE_PATH, animMapping);
 
-		SetPosition(position);
-		SetVelocity({ 0.f, 0.f });
-
-		anim = new Animation(spriteSheet, 0.25f);
+		anim = new ActorAnimation(spriteSheet);
 	}
 	~Player() {
 		Destroy();
 	}
 
-	void Update();
-	void Render();
-	void Destroy();
+	virtual void Update() override;
+	virtual void Render();
 
 private:
 	const char* SPRITE_FILE_PATH = "player/soldier.png";
 
 	float maxSpeed = 200.0f;
-	float accelerationRate = 300.0f;
-	float decelerationRate = 500.0f;
+	float accelerationRate = 500.0f;
+	float decelerationRate = 1000.0f;
 };

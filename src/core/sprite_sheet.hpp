@@ -1,9 +1,11 @@
 #pragma once
 #include <unordered_map>
 #include "raylib.h"
+#include <variant>
 
-enum AnimationActivity: unsigned char {
+enum EntityAnimationActivity: unsigned char {
 	NONE,
+	LOOP,
 	IDLE,
 	LEFT_MOVE,
 	RIGHT_MOVE,
@@ -13,6 +15,7 @@ enum AnimationActivity: unsigned char {
 	DIE
 };
 
+using AnimationActivity = std::variant<EntityAnimationActivity>;
 class SpriteSheet {
 public:
 	SpriteSheet() {
@@ -39,8 +42,8 @@ public:
 		UnloadTexture(texture);
 	}
 
-	int GetRows() { return rows; };
-	int GetColumns() { return columns; };
+	int GetRows() { return rows - 1; };
+	int GetColumns() { return columns - 1; };
 	int GetSpriteSize() { return spriteSize; };
 	Texture2D GetTexture() { return texture; };
 

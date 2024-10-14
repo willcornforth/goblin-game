@@ -13,7 +13,7 @@ public:
 	}
 	Animation(
 		SpriteSheet* _spriteSheet,
-		float _frameTime = 0.25f
+		float _frameTime = GetFrameTime()
 	) {
 		spriteSheet = _spriteSheet;
 
@@ -23,15 +23,15 @@ public:
 		currRow = 0;
 	}
 
-	void Update(Vector2D velocity);
+	virtual void Update(Vector2D velocity) = 0;
+
 	Rectangle GetCurrentAnimSpriteRect();
 	SpriteSheet* Animation::GetSpriteSheet() { return spriteSheet; };
 
 	~Animation() {
 		spriteSheet->~SpriteSheet();
 	}
-
-private:
+protected:
 	SpriteSheet* spriteSheet;
 
 	int currFrame;

@@ -1,4 +1,5 @@
 #include "game.hpp"
+#include "particle.hpp"
 
 void Game::Run()
 {
@@ -23,8 +24,11 @@ void Game::Init()
 	SearchAndSetResourceDir("resources");
 
 	// Create local player and sprite.
-	Player* localPlayer = new Player(Vector2D{ screenSize.x / 2.f, screenSize.y / 2.f });
+	Player* localPlayer = new Player({ screenSize.x / 2.f, screenSize.y / 2.f });
 	entityList.push_back(localPlayer);
+
+	Particle* fancyRing = new Particle(500.f, { screenSize.x / 2.f, screenSize.y / 2.f });
+	entityList.push_back(fancyRing);
 }
 
 void Game::Update()
