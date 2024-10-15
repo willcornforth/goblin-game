@@ -32,6 +32,7 @@ public:
 	SpriteSheet* Animation::GetSpriteSheet() { return spriteSheet; };
 
 	~Animation() {
+		delete spriteSheet;
 	}
 protected:
 	SpriteSheet* spriteSheet;

@@ -15,13 +15,15 @@ public:
 
 		anim = new Animation(spriteSheet);
 	}
+	~Particle() {
+		Entity::~Entity();
+	}
 
 	virtual void Render();
 	virtual void Update();
 	virtual void Destroy();
 
 protected:
-	Animation* anim;
 	float timeToDecay;
 
 private:

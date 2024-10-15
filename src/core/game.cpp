@@ -27,7 +27,7 @@ void Game::Init()
 	Player* localPlayer = new Player({ screenSize.x / 2.f, screenSize.y / 2.f });
 	entityList.push_back(localPlayer);
 
-	Particle* fancyRing = new Particle(5.f, { screenSize.x / 2.f, screenSize.y / 2.f });
+	Particle* fancyRing = new Particle(500.f, { screenSize.x / 2.f, screenSize.y / 2.f });
 	entityList.push_back(fancyRing);
 }
 

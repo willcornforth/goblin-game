@@ -20,8 +20,8 @@ void Particle::Render() {
 	);
 	
 	// Debug decay.
-	std::string temp = "Decay: " + std::to_string(timeToDecay);
-	DrawText(temp.data(), position.x, position.y - 5, 12, RAYWHITE);
+	//std::string temp = "Decay: " + std::to_string(timeToDecay);
+	//DrawText(temp.data(), position.x, position.y - 5, 12, RAYWHITE);
 }
 
 void Particle::Destroy()

@@ -19,6 +19,7 @@ public:
 	}
 	~Player() {
 		Destroy();
+		Entity::~Entity();
 	}
 
 	virtual void Update() override;

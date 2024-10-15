@@ -23,7 +23,9 @@ public:
 	virtual void Render() = 0;
 	virtual void Destroy();
 
-	virtual ~Entity() = default;
+	virtual ~Entity() {
+		delete anim;
+	}
 
 	Vector2D GetPosition() const { return position; };
 	void SetPosition(Vector2D newPosition) { position.x = newPosition.x; position.y = newPosition.y; }
