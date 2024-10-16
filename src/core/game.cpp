@@ -29,11 +29,11 @@ void Game::Init()
 	Particle* fancyRing = new Particle(500.f, { screenSize.x / 2.f, screenSize.y / 2.f });
 	entityList.push_back(fancyRing);
 
-	Goblin* testGoblin = new Goblin({ screenSize.x / 2.5f, screenSize.y / 2.f });
-	entityList.push_back(testGoblin);
-
 	Player* localPlayer = new Player({ screenSize.x / 2.f, screenSize.y / 2.f });
 	entityList.push_back(localPlayer);
+
+	Goblin* testGoblin = new Goblin({ screenSize.x / 2.5f, screenSize.y / 2.f }, localPlayer);
+	entityList.push_back(testGoblin);
 
 }
 

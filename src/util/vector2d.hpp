@@ -17,8 +17,19 @@ public:
 		return sqrtf(x * x + y * y);
 	}
 
+	inline Vector2D Normalise() {
+		const float magnitude = Length();
+
+		if (magnitude == 0.f) {
+			return { 0.f, 0.f };
+		}
+		return { x / magnitude, y / magnitude };
+	}
+
 	Vector2D operator/(const float val);
 	Vector2D operator*(float val);
+
+	Vector2D operator-(Vector2D& other);
 	Vector2D& operator=(Vector2D other);
 	Vector2D& operator+=(Vector2D other);
 
