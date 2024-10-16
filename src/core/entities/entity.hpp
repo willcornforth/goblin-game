@@ -34,6 +34,7 @@ public:
 
 protected:
 	Animation* anim = nullptr;
+
 	bool isDestroyed = false;
 	EntityType type = TypeEntity;
 	Vector2D velocity = { 0.f, 0.f };
