@@ -1,5 +1,8 @@
 #include "game.hpp"
-#include "particle.hpp"
+
+#include "./entities/player.hpp"
+#include "./entities/particle.hpp"
+#include "./entities/goblin.hpp"
 
 void Game::Run()
 {
@@ -23,12 +26,15 @@ void Game::Init()
 	// Utility function from resource_dir.h to find the resources folder and set it as the current working directory so we can load from it
 	SearchAndSetResourceDir("resources");
 
-	// Create local player and sprite.
+	Particle* fancyRing = new Particle(500.f, { screenSize.x / 2.f, screenSize.y / 2.f });
+	entityList.push_back(fancyRing);
+
+	Goblin* testGoblin = new Goblin({ screenSize.x / 2.5f, screenSize.y / 2.f });
+	entityList.push_back(testGoblin);
+
 	Player* localPlayer = new Player({ screenSize.x / 2.f, screenSize.y / 2.f });
 	entityList.push_back(localPlayer);
 
-	Particle* fancyRing = new Particle(500.f, { screenSize.x / 2.f, screenSize.y / 2.f });
-	entityList.push_back(fancyRing);
 }
 
 void Game::Update()

@@ -1,6 +1,6 @@
 #pragma once
 #include "entity.hpp"
-#include "actor_animation.hpp"
+#include "../animations/actor_animation.hpp"
 
 class Player : public Entity {
 public:
@@ -23,7 +23,7 @@ public:
 	}
 
 	virtual void Update() override;
-	virtual void Render();
+	virtual void Render() override;
 
 private:
 	const char* SPRITE_FILE_PATH = "player/soldier.png";

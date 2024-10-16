@@ -1,11 +1,10 @@
 #pragma once
 #include <vector>
+#include <string>
 
 #include "raylib.h"
 #include "resource_dir.h"
-
-#include "player.hpp"
-#include <string>
+#include "./entities/entity.hpp"
 
 class Game {
 public:

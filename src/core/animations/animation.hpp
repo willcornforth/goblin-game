@@ -1,6 +1,6 @@
 #pragma once
 #include "util/vector2d.hpp"
-#include "sprite_sheet.hpp"
+#include "../sprite_sheet.hpp"
 
 // Basic looping animation class.
 class Animation {

@@ -1,5 +1,5 @@
 #include "sprite_sheet.hpp"
-#include "animation.hpp"
+#include "animations/animation.hpp"
 
 int SpriteSheet::GetRowForAnimActivity(AnimationActivity act)
 {

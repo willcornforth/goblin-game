@@ -1,7 +1,7 @@
 #pragma once
 #include "raylib.h"
 #include "util/vector2d.hpp"
-#include "animation.hpp"
+#include "../animations/animation.hpp"
 
 enum EntityType : unsigned char {
 	TypeEntity,
@@ -12,11 +12,6 @@ class Entity {
 public:
 	Entity(Vector2D _position) {
 		position = _position;
-		velocity = velocity;
-
-		type = TypeEntity;
-		isDestroyed = false;
-		anim = nullptr;
 	}
 
 	virtual void Update() = 0;
@@ -38,11 +33,10 @@ public:
 	EntityType GetType() const { return type; };
 
 protected:
-	Animation* anim;
-
-	bool isDestroyed;
-	EntityType type;
+	Animation* anim = nullptr;
+	bool isDestroyed = false;
+	EntityType type = TypeEntity;
+	Vector2D velocity = { 0.f, 0.f };
 
 	Vector2D position;
-	Vector2D velocity;
 };
