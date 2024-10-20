@@ -26,13 +26,13 @@ void Game::Init()
 	// Utility function from resource_dir.h to find the resources folder and set it as the current working directory so we can load from it
 	SearchAndSetResourceDir("resources");
 
-	Particle* fancyRing = new Particle(500.f, { screenSize.x / 2.f, screenSize.y / 2.f });
-	entityList.push_back(fancyRing);
+	Particle* fireBall = new Particle(500.f, { screenSize.x / 2.f, screenSize.y / 2.f }, 0.1f);
+	entityList.push_back(fireBall);
 
 	Player* localPlayer = new Player({ screenSize.x / 2.f, screenSize.y / 2.f });
 	entityList.push_back(localPlayer);
 
-	Goblin* testGoblin = new Goblin({ screenSize.x / 2.5f, screenSize.y / 2.f }, localPlayer);
+	Goblin* testGoblin = new Goblin({ 0.f, 0.f }, localPlayer);
 	entityList.push_back(testGoblin);
 
 }

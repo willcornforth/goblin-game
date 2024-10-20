@@ -5,7 +5,6 @@
 
 enum EntityAnimationActivity: unsigned char {
 	NONE,
-	LOOP,
 	IDLE,
 	LEFT_MOVE,
 	RIGHT_MOVE,
@@ -14,8 +13,8 @@ enum EntityAnimationActivity: unsigned char {
 	ATTACK,
 	DIE
 };
-
 using AnimationActivity = std::variant<EntityAnimationActivity>;
+
 class SpriteSheet {
 public:
 	SpriteSheet() {
@@ -30,7 +29,7 @@ public:
 		int _columns,
 		int _spriteSize,
 		const char* spriteSheetFilePath, 
-		std::unordered_map<AnimationActivity, int> _animMapping
+		std::unordered_map<AnimationActivity, int> _animMapping = std::unordered_map<AnimationActivity, int>()
 	) {
 		rows = _rows;
 		columns = _columns;

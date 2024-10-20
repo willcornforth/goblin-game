@@ -3,17 +3,16 @@
 
 class Particle : public Entity {
 public:
-	Particle(float _timeToDecay, Vector2D _position) : Entity(_position) {
+	Particle(float _timeToDecay, Vector2D _position, float _frameTime = GetFrameTime())
+		: Entity(_position) {
 		timeToDecay = _timeToDecay;
 
-		std::unordered_map<AnimationActivity, int> animMapping = {
-		{LOOP, 0}
-		};
-
+		//SpriteSheet* spriteSheet =
+		//	new SpriteSheet(8, 8, 100, SPRITE_FILE_PATH, animMapping);
 		SpriteSheet* spriteSheet =
-			new SpriteSheet(8, 8, 100, SPRITE_FILE_PATH, animMapping);
+			new SpriteSheet(1, 5, 64, SPRITE_FILE_PATH);
 
-		anim = new Animation(spriteSheet);
+		anim = new Animation(spriteSheet, _frameTime);
 	}
 	~Particle() {
 		Entity::~Entity();
@@ -27,5 +26,5 @@ protected:
 	float timeToDecay;
 
 private:
-	const char* SPRITE_FILE_PATH = "particle/fancy_ring_blue.png";
+	const char* SPRITE_FILE_PATH = "particle/fire_ball.png";
 };
